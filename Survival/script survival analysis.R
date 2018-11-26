@@ -44,7 +44,7 @@ anova(m1,m2,test="Chisq")
 treat.2=recode(treatment,"c('amino','sucrose')='aminosucrose'")
 levels(treat.2)
 
-#Refazendo análises
+#Refazendo anÃ¡lises
 
 m1= survreg(Surv(Obs.T,T.exc.)~treatment)
 m3 = survreg(Surv(Obs.T,T.exc.)~treat.2)
@@ -57,7 +57,7 @@ anova(m1,m3,test="Chisq")
 treat.3=recode(treatment,"c('amino','sucrose','sucrose_amino')='aminosucrosesacamino'")
 levels(treat.3)
 
-#Refazendo análises
+#Refazendo anÃ¡lises
 
 m1= survreg(Surv(Obs.T,T.exc.)~treatment)
 m4 = survreg(Surv(Obs.T,T.exc.)~treat.3)
@@ -144,12 +144,12 @@ TPM1 <- mut1*gamma(1+(1/alfa))
 TPM1
 #75.79214
 
-#TPM2 = aminoácidos-sacarose
+#TPM2 = aminoÃ¡cidos-sacarose
 TPM2 <- mut2*gamma(1+(1/alfa))
 TPM2
 #32.45954
 
-#TPM3 = sacarose+aminoácidos
+#TPM3 = sacarose+aminoÃ¡cidos
 TPM3 <- mut3*gamma(1+(1/alfa))
 TPM3
 #16.07065
@@ -167,10 +167,10 @@ plot(m.full,mark=c(1,4),las=1,col=c("white","white"),ylab= "Proportion of alive 
 curve(exp((-mut1^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="Proportion of alive termites(log)",type="l",lty=1,col="gray70",lwd=2,add=T)
 
 #Curve for amino-sucrose
-curve(exp((-mut2^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="Proporção de Vivos",type="l",lty=2,col="gray40",log="y",lwd=2,add=T)
+curve(exp((-mut2^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="ProporÃ§Ã£o de Vivos",type="l",lty=2,col="gray40",log="y",lwd=2,add=T)
 
 #Curve for sucrose+amino
-curve(exp((-mut3^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="Proporção de Vivos",type="l",lty=1,col=1,log="y",lwd=2,add=T)
+curve(exp((-mut3^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="ProporÃ§Ã£o de Vivos",type="l",lty=1,col=1,log="y",lwd=2,add=T)
 
 
 #graph with mean time 
@@ -195,7 +195,7 @@ abline(h=0.5,lty=2)
 abline(v=tmedio2,lty=2,col=1,ylim=c(0,0.5))
 points(tmedio2,0.5,pch=15,cex=1.5,col="gray40")
 
-#mean time for sucrose+aminoácidos
+#mean time for sucrose+aminoÃ¡cidos
 tmedio3 <- (log(0.5)/((-mut3^-alfa)))^(1/alfa)
 tmedio3
 abline(h=0.5,lty=2)
