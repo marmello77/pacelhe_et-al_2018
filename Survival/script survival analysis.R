@@ -2,7 +2,11 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 
-#Get the data from a TXT file
+#Delete all previous objects
+rm(list= ls())
+
+
+#Get the data
 data<- read.table("Survival.txt",header=T)
 attach(data)
 summary(data)
