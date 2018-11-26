@@ -1,19 +1,13 @@
+The present data set was used in the statistical analysis of the paper "Nectar quality affects ant aggressiveness and biotic defense provided to plants" (Biotropica, accepted), authored by Fábio Pacelhe, Fernanda Costa, Frederico Neves, Judith Bronstein, and Marco Mello. If you use our data, please cite both the GitHub repository and the paper. 
 
-The present data set was used for the development of the manuscript “Nectar quality affects ant aggressiveness and biotic defense provided to plants”, authored by Fábio Pacelhe, Fernanda Costa, Frederico Neves, Judith Bronstein, and Marco Mello. When using this data archives, please cite both the data archive and the original manuscript 
+Metadata:
 
+Plant: Individual plants used in the experiment. Each code refers to Vochysia eliptica (VE) + the individual plant number (i.e., from 01 to 10 for each treatment) + the manipulated resource (i.e., MS = manipulated with sucrose; MSA = manipulated with sucrose and amino acids; MA = with amino acids and MW = manipulated with water).
 
-To use this data set take into account the following information:
+Treatment: Indicates the type of resource used in each treatment. 
 
-Plant: Individual plants used in the experiment. Each code makes reference to the Vochysia eliptica species (VE) + individual plant number (i.e., from 01 to 10 for each treatment) + the manipulated resource (i.e., MS = manipulated with sucrose; MSA = manipulated with sucrose and amino acids; MA = with amino acids and MW = manipulated with water).
+Period: Indicates the period of the day when the observations were made. Daytime encompass sampling from 06:00 to 12:00, and night time from 18:00 to 24:00.
 
+Obs.T.: Time of observation. We observed ants for 30 min. We stopped the observation after 30 min or when the termite was consumed, left the plant, or fell from the plant due to vibrations caused by wind or ant attacks.
 
-Tretment: Indicates the type of resource used in each treatment. 
-
-
-Period:Indicates period of the day where the observations were undertaken. Daytime encompass samplings from 06 to 12 am, and nighttime from 18 to 24 pm.
-
-
-Obs.T.: Observation Time. Time of observation. We observed antes for 30 min. We stopped the observation the ants after 30 min or when the termite was consumed, left the plant, or fell from the plant due to vibrations caused by wind or ant attacks.
-
-
-T.exc.: Termite exclusion. Events of termite exclusion by ants during observation (binary variable, being 1 when there is exclusion and 0 when there is no exclusion).
+T.exc.: Termite exclusion. Events of termite exclusion by ants during observation (binary variable, 1 = exclusion and 0 = no exclusion).
