@@ -12,6 +12,7 @@ How to cite: Pacelhe et al. 2018. Nectar quality affects ant aggressiveness and 
 
 Published on November 26th, 2018.
 
+<a href="https://doi.org/10.5281/zenodo.1543283"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1543283.svg" alt="DOI"></a>
 
 
 Run in R version 3.5.1 (2018-07-02) -- "Feather Spray"
