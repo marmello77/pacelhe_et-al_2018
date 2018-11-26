@@ -1,6 +1,6 @@
 # Supplementary information from Pacelhe et al. 2018 (Biotropica)
 
-Content: This repository includes raw data used in the statistical analysis, metadata, and R scripts.
+Content: This repository includes raw data, metadata, and R scripts used in the statistical analysis of the above mentioned paper.
 
 Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com
 
