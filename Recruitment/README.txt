@@ -1,5 +1,5 @@
 
-The present data set was used for the development of the manuscript “Nectar quality affects ant aggressiveness and biotic defense provided to plants”, authored by Fábio Pacelhe, Fernanda Costa, Frederico Neves, Judith Bronstein, and Marco Mello. When using this data archives, please cite both the data archive and the original manuscript 
+The present data set was used for the development of the manuscript â€œNectar quality affects ant aggressiveness and biotic defense provided to plantsâ€, authored by FÃ¡bio Pacelhe, Fernanda Costa, Frederico Neves, Judith Bronstein, and Marco Mello. When using this data archives, please cite both the data archive and the original manuscript 
 
 
 To use this data set take into account the following information:
