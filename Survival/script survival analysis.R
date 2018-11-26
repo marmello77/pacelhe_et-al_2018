@@ -85,7 +85,7 @@ m.full = survfit(Surv(Obs.T,T.exc.)~treat.6)
 
 
 #Survival plot with raw curves
-plot(m.full,mark=c(1,4,6),las=1,col=c(1,4,6),ylab= "Proportion of living", xlab="Time (minutes)",bty="l")
+plot(m.full,mark=c(1,4,6),las=1,col=c(1,4,6),ylab= "Proportion of termites remaining", xlab="Time (min)",bty="l")
 
 #Estimate alpha and mu
 #Calculate the mean time for each group (log), that is, the mean time to death
@@ -178,5 +178,3 @@ points(tmedio3,0.5,pch=16,cex=1.5,col=1)
 legend("bottomleft",legend=(legend),lty=c(1,2,1),pch=c(NA,15,16),pt.cex=0.8,col=c("gray70","gray40",1),lwd=2,bty="n")
 
 detach(data)
-
-######################################################################################################################
