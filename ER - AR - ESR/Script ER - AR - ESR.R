@@ -3,10 +3,12 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 
 #Load the packages
+library(AER)
 library(lme4)
 library(MuMIn)
 library(car)
 library(gplots)
+library(sjmisc)
 
 
 #Delete all previous objects
@@ -27,7 +29,6 @@ anova(ER.mn,ER.m1)
 #The null model was rejected -> p = 0.002557
 anova(ER.m1)
 summary(ER.m1)
-
 
 #Which treatments differ from one another?
 plot(ER~treatment)
@@ -74,21 +75,13 @@ anova(ER.m5,ER.mn)
 anova(ER.m5)
 summary(ER.m5)
 
-
 #Calculate the R value 
 r.squaredGLMM(ER.m5)
 #       R2m        R2c 
 #   0.05565107 0.15579642 
 
-#Check the distribution
-overdisp_fun(ER.m5)
-
-#Relationship between response variable and adjusted values
-plot(ER.m5, ER ~ fitted(.))
-
-#Error distribution for each treatment
-qqnorm(ER.m5, ~ resid(.)|plant)
-
+#Test for homogeneity of variance
+plot(ER.m5)
 
 #Plot the graphs for Encounter Rate
 #Rename treatments
@@ -211,23 +204,15 @@ r.squaredGLMM(AR.mideal)
 #       R2m        R2c 
 #   0.1004170 0.1457468 
 
-#Test for a relationship between the response variable and the adjusted values
-plot (AR.m3, ER ~ fitted(.))
-
-#Error distribution for each treatment
-qqnorm(AR.m3, ~ resid(.)|plantas)
-
+#Test for homogeneity of variance
+plot(AR.m3)
 
 #Plot the graphs for Encounter Rate
 #Test the distribution
-overdisp_fun(m3)
+overdisp(m3)
 
-#Test for a relationship between the response variable and the adjusted values
-plot (AR.m3, AR ~ fitted(.))
-
-#Error distribution for each treatment
-qqnorm(AR.m3, ~ resid(.)|plant)
-
+#Test for homogeneity of variance
+plot(AR.m3)
 
 #Plot the graph for Attack rate
 #Rename treatments
@@ -344,21 +329,8 @@ r.squaredGLMM(ESR.mideal)
 #       R2m        R2c 
 #   0.1732549   0.2243596
 
-#Test for a relationship between the response variable and the adjusted values
-plot(ESR.m3, ESR ~ fitted(.))
-
-#Error distribution for each treatment
-qqnorm(ESR.m3, ~ resid(.)|plant)
-
-#Plot the graphs for Encounter Rate
-#Check the distribution
-overdisp_fun(m3)
-
-#Test for a relationship between the response variable and the adjusted values
-plot(ESR.m3, ESR ~ fitted(.))
-
-#Error distribution for each treatment
-qqnorm(ESR.m3, ~ resid(.)|plant)
+#Test for homogeneity of variance
+plot(ESR.m3)
 
 #Plot the graphs for Exclusion Success
 #Rename the treatments
