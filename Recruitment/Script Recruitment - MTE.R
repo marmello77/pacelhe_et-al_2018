@@ -10,6 +10,7 @@ rm(list= ls())
 data<-read.table("Recruitment_MTE.txt",h=T)
 attach(data)
 summary(data)
+head(data)
 
 
 #Load the packages
@@ -17,6 +18,13 @@ library(lme4)
 library(MuMIn)
 library(car)
 library(gplots)
+library(AER)
+library(MASS)
+library(ggplot2)
+library(lattice)
+
+
+####################################
 
 
 #Test for a  difference in ant recruitment between treatments
@@ -26,6 +34,18 @@ anova(mn,m1)
 #The null model was rejected -> p = 6.776e-07)
 anova(m1)
 summary(m1)
+
+#Check model assumptions
+#Linearity
+plot(resid(m1),M.abund)
+#Homogeneity of variances of the residuals
+plot(m1)
+#Normality of the residuals
+qqnorm(residuals(m1))
+
+
+####################################
+
 
 #Which treatments differ from one another?
 plot(M.abund~treatment)
@@ -76,6 +96,9 @@ summary(m4)
 r.squaredGLMM(m4)
 #       R2m        R2c 
 #   0.2284679 0.3372877
+
+
+####################################
 
 
 #Plot the graphs for Recruitment
@@ -133,6 +156,18 @@ anova(mn,m1)
 anova(m1)
 summary(m1)
 
+#Check model assumptions
+#Linearity
+plot(resid(m1),M.abund)
+#Homogeneity of variances of the residuals
+plot(m1)
+#Normality of the residuals
+qqnorm(residuals(m1))
+
+
+##############################
+
+
 #Which treatments differ from one another?
 plot(MTE~treatment)
 
@@ -184,7 +219,10 @@ r.squaredGLMM(m5)
 #   0.1968566 0.3234462 
 
 
-#Plot the graphs for Minimum Time Encounter
+####################################
+
+
+#Plot the graphs for Minimum Time for Encounter
 
 #Rename the treatments
 treat.1<-recode(treatment,"c('water')='Water'")
