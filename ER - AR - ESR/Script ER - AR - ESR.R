@@ -22,13 +22,28 @@ summary(data)
 levels(treatment)
 
 
-#Test for a difference in Encounter Rate between treatments
+#######################################
+
+
+#Test for differences in Encounter Rate between treatments
 ER.mn=lmer(ER~1+(1|plant),REML=FALSE)
 ER.m1=lmer(ER~treatment+(1|plant),REML=FALSE)
 anova(ER.mn,ER.m1)
 #The null model was rejected -> p = 0.002557
 anova(ER.m1)
 summary(ER.m1)
+
+#Check model assumptions
+#Linearity
+plot(resid(ER.m1),M.abund)
+#Homogeneity of variances of the residuals
+plot(ER.m1)
+#Normality of the residuals
+qqnorm(residuals(ER.m1))
+
+
+#######################################
+
 
 #Which treatments differ from one another?
 plot(ER~treatment)
@@ -83,6 +98,10 @@ r.squaredGLMM(ER.m5)
 #Test for homogeneity of variance
 plot(ER.m5)
 
+
+#######################################
+
+
 #Plot the graphs for Encounter Rate
 #Rename treatments
 treat.1<-recode(treatment,"c('water')='Water'")
@@ -131,12 +150,24 @@ text(6.7,0.24, "b",cex.axis=1.2,family="serif")
 #########################################
 
 
-#Run the same test for Attack Rate
+#Test for differences in Attack Rate between treatments
 AR.mn=lmer(AR~1+(1|plant),REML=FALSE)
 AR.m1=lmer(AR~treatment+(1|plant),REML=FALSE)
 anova(AR.mn,AR.m1)
 #The null model was rejected -> p = 0.0001508
 anova(AR.m1)
+
+#Check model assumptions
+#Linearity
+plot(resid(AR.m1),M.abund)
+#Homogeneity of variances of the residuals
+plot(AR.m1)
+#Normality of the residuals
+qqnorm(residuals(AR.m1))
+
+
+#######################################
+
 
 #Which treatments differ from one another?
 plot(AR~treatment)
@@ -207,6 +238,10 @@ r.squaredGLMM(AR.mideal)
 #Test for homogeneity of variance
 plot(AR.m3)
 
+
+#######################################
+
+
 #Plot the graphs for Encounter Rate
 #Test the distribution
 overdisp(m3)
@@ -260,12 +295,24 @@ text(6.7,0.47, "c",cex.axis=1.2,family="serif")
 #########################################
 
 
-#Run the same test for Exclusion Success Rate
+#Test for differences in Exclusion Success Rate between treatments
 ESR.mn=lmer(ESR~1+(1|plant),REML=FALSE)
 ESR.m1=lmer(ESR~treatment+(1|plant),REML=FALSE)
 anova(ESR.mn,ESR.m1)
 #The null model was rejected -> p = 8.593e-07
 anova(ESR.m1)
+
+#Check model assumptions
+#Linearity
+plot(resid(ESR.m1),M.abund)
+#Homogeneity of variances of the residuals
+plot(ESR.m1)
+#Normality of the residuals
+qqnorm(residuals(ESR.m1))
+
+
+#######################################
+
 
 #Which treatments differ from one another?
 plot(ESR~treatment)
@@ -331,6 +378,10 @@ r.squaredGLMM(ESR.mideal)
 
 #Test for homogeneity of variance
 plot(ESR.m3)
+
+
+#######################################
+
 
 #Plot the graphs for Exclusion Success
 #Rename the treatments
