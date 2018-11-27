@@ -11,6 +11,10 @@ data<- read.table("Survival.txt",header=T)
 attach(data)
 summary(data)
 plot(data)
+head(data)
+
+
+######################################
 
 
 #Does the time of observation depend on the treatment?
@@ -19,6 +23,9 @@ m.completo = survreg(Surv(Obs.T,T.exc.)~treatment) #Checke README.txt for metada
 m.n = survreg(Surv(Obs.T,T.exc.)~1)
 anova(m.n,m.completo,test="Chisq")
 #The null model was rejected -> p = 1.933149e-11
+
+
+######################################
 
 
 #Which treatments differ from one another?
@@ -66,7 +73,11 @@ anova(m3)
 summary(m3)
 
 
-#Plot the graph
+######################################
+
+
+#Survival plot with raw curves
+
 #Rename the treatments
 treat.4=recode(treatment,"c('water')='Water'")
 levels(treat.4)
@@ -83,13 +94,18 @@ legend
 #Run the model to be used for plotting
 m.full = survfit(Surv(Obs.T,T.exc.)~treat.6)
 
-
 #Survival plot with raw curves
 plot(m.full,mark=c(1,4,6),las=1,col=c(1,4,6),ylab= "Proportion of termites remaining", xlab="Time (min)",bty="l")
 
+
+######################################
+
+
+#Survival plot with smooth curves
+
 #Estimate alpha and mu
 #Calculate the mean time for each group (log), that is, the mean time to death
-#calculating alpha
+#Calculate alpha
 m.full = survreg(Surv(Obs.T,T.exc.)~treat.6)
 summary(m.full)
 
@@ -118,57 +134,56 @@ mut3
 #17.97533
 
 #TPM1 = water
-TPM1 <- mut1*gamma(1+(1/alfa))
+TPM1 <- mut1*gamma(1+(1/alpha))
 TPM1
 #75.79214
 
 #TPM2 = amino?cidos-sacarose
-TPM2 <- mut2*gamma(1+(1/alfa))
+TPM2 <- mut2*gamma(1+(1/alpha))
 TPM2
 #32.45954
 
 #TPM3 = sacarose+amino?cidos
-TPM3 <- mut3*gamma(1+(1/alfa))
+TPM3 <- mut3*gamma(1+(1/alpha))
 TPM3
 #16.07065
 
-
-#Survival plot with estimated curves
+#Survival plot with smooth curves
 m.full = survfit(Surv(Obs.T,T.exc.)~treat.6)
 plot(m.full,mark=c(1,4),las=1,col=c("white","white"),ylab= "Proportion of termites remaining (log)", xlab="Time (min)",bty="l",family="serif",cex.lab=1.2)
 
 #Curve for water
-curve(exp((-mut1^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="Proportion of termites remaining (log)",type="l",lty=1,col="gray70",lwd=2,add=T)
+curve(exp((-mut1^(-alpha))*(x^alpha)),from=0,to=50,xlab="",ylab="Proportion of termites remaining (log)",type="l",lty=1,col="gray70",lwd=2,add=T)
 
 #Curve for amino-sucrose
-curve(exp((-mut2^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="Proportion of termites remaining (log)",type="l",lty=2,col="gray40",log="y",lwd=2,add=T)
+curve(exp((-mut2^(-alpha))*(x^alpha)),from=0,to=50,xlab="",ylab="Proportion of termites remaining (log)",type="l",lty=2,col="gray40",log="y",lwd=2,add=T)
 
 #Curve for sucrose+amino
-curve(exp((-mut3^(-alfa))*(x^alfa)),from=0,to=50,xlab="",ylab="Proportion of termites remaining (log)",type="l",lty=1,col=1,log="y",lwd=2,add=T)
+curve(exp((-mut3^(-alpha))*(x^alpha)),from=0,to=50,xlab="",ylab="Proportion of termites remaining (log)",type="l",lty=1,col=1,log="y",lwd=2,add=T)
 
 
 #Plot the mean time 
 #Calculating the time where we have 50% mortality, an interpretation of the MU parameter
-# log(S) = (-mu^-alfa)*(t^alfa)
-# t^alfa = log(S)/((-mu^-alfa))
-# t = (log(S)/((-mu^-alfa)))^(1/alfa)
+# log(S) = (-mu^-alpha)*(t^alpha)
+# t^alpha = log(S)/((-mu^-alpha))
+# t = (log(S)/((-mu^-alpha)))^(1/alpha)
 
 #mean time for water
-tmedio1 <- (log(0.5)/((-mut1^-alfa)))^(1/alfa)
+tmedio1 <- (log(0.5)/((-mut1^-alpha)))^(1/alpha)
 tmedio1
 abline(h=0.5,lty=2)
 abline(v=tmedio1,lty=2,col=1)
 points(tmedio1,0.5,pch=16,cex=1,col=1)
 
 #mean time for amino_sacarose
-tmedio2 <- (log(0.5)/((-mut2^-alfa)))^(1/alfa)
+tmedio2 <- (log(0.5)/((-mut2^-alpha)))^(1/alpha)
 tmedio2
 abline(h=0.5,lty=2)
 abline(v=tmedio2,lty=2,col=1,ylim=c(0,0.5))
 points(tmedio2,0.5,pch=15,cex=1.5,col="gray40")
 
 #mean time for sucrose+amino?cidos
-tmedio3 <- (log(0.5)/((-mut3^-alfa)))^(1/alfa)
+tmedio3 <- (log(0.5)/((-mut3^-alpha)))^(1/alpha)
 tmedio3
 abline(h=0.5,lty=2)
 abline(v=tmedio3,lty=2,col=1)
