@@ -1,4 +1,4 @@
-# Supplementary information from Pacelhe et al. 2018 (Biotropica)
+# Supplementary information from Pacelhe et al. 2019 (Biotropica)
 
 Content: This repository includes raw data, metadata, and R scripts used in the statistical analysis of the above mentioned paper.
 
