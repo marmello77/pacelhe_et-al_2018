@@ -8,7 +8,7 @@ Authors: Fábio Pacelhe, Fernanda Costa, Frederico Neves, Judith Bronstein, and 
 
 E-mail: fabiotulio.bio@gmail.com.
 
-How to cite: Pacelhe et al. 2018. Nectar quality affects ant aggressiveness and biotic defense provided to plants. Biotropica, accepted. Supplementary Information.
+How to cite: Pacelhe et al. 2018. Nectar quality affects ant aggressiveness and biotic defense provided to plants. Biotropica, in press. DOI: http://doi.org/10.1111/btp.12625. Supplementary Information.
 
 Published on November 26th, 2018.
 
